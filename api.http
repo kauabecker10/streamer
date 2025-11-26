@@ -1,0 +1,31 @@
+Register - Create user
+POST {{baseUrl}}/auth/register Content-Type: application/json
+
+{ "username": "alice", "password": "secret", "name": "Alice" }
+
+Login - Get token
+POST {{baseUrl}}/auth/login Content-Type: application/json
+
+{ "username": "alice", "password": "secret" }
+
+Who am I - /auth/me
+GET {{baseUrl}}/auth/me Authorization: Bearer {{token}}
+
+Create Stream
+POST {{baseUrl}}/streams Content-Type: application/json Authorization: Bearer {{token}}
+
+{ "title": "Live de Games", "summary": "Gameplay e bate-papo", "url": "https://example.com/stream.m3u8", "tags": ["games","live"] }
+
+List / Search Streams
+GET {{baseUrl}}/streams?q=games&page=1&limit=10
+
+Get Stream by ID
+GET {{baseUrl}}/streams/{{streamId}}
+
+Update Stream (owner only)
+PUT {{baseUrl}}/streams/{{streamId}} Content-Type: application/json Authorization: Bearer {{token}}
+
+{ "title": "Live de Games (Atualizado)", "summary": "Resumo atualizado", "tags": ["games","highlights"] }
+
+Delete Stream (owner only)
+DELETE {{baseUrl}}/streams/{{streamId}} Authorization: Bearer {{token}}

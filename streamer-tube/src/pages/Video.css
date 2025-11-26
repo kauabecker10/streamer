@@ -1,0 +1,9 @@
+.video-layout {
+  display: flex;
+}
+.back-home {
+  margin: 24px 32px;
+  display: inline-block;
+  color: #61dafb;
+  text-decoration: none;
+}
